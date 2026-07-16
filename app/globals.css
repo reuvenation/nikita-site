@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #ffffff;
+  --ink: #0c1526;
+  --navy: #10357f;
+  --blue: #1b4db3;
+  --sky: #e7edf8;
+  --red: #c8102e;
+  --line: #e9edf4;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-navy: var(--navy);
+  --color-blue: var(--blue);
+  --color-sky: var(--sky);
+  --color-flagred: var(--red);
+  --color-line: var(--line);
+  --font-sans: var(--font-fors);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-fors), system-ui, sans-serif;
+}
+
+/* Служебная надпись — маленькие капсы с разрядкой */
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 45%, transparent);
+}
+
+/* Триколор-лента — фирменный элемент */
+.ribbon {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.ribbon span:nth-child(1) {
+  background: #fff;
+}
+.ribbon span:nth-child(2) {
+  background: var(--blue);
+}
+.ribbon span:nth-child(3) {
+  background: var(--red);
+}
+
+/* Появление при загрузке */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.15s; }
+.rise-3 { animation-delay: 0.25s; }
+.rise-4 { animation-delay: 0.35s; }
+
+/* Плавное появление модального окна: фон растворяется, панель выезжает сверху */
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.modal-overlay {
+  animation: overlay-in 0.25s ease-out both;
+}
+.modal-panel {
+  animation: panel-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Бегущая волна флага: сдвиг ровно на один период (600 из 1200) — бесшовный цикл */
+@keyframes flagmove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-600px);
+  }
+}
+.flag-run {
+  animation: flagmove 7s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+  .flag-run {
+    animation: none;
+  }
+  .modal-overlay,
+  .modal-panel {
+    animation: none;
+  }
+}
