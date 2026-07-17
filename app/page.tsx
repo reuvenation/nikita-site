@@ -1,6 +1,9 @@
 import Image from "next/image";
 import ContactDirect from "./contact-direct";
 
+// unoptimized-картинки не получают basePath автоматически — префиксуем сами
+const BP = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 // Развевающийся флаг России. Ширина рисунка 1200 = два периода видимой
 // области (600), цикл бесшовный. Полосы рисуются внахлёст (каждая — от своего
 // верхнего края до низа полотна), поэтому швов между цветами нет. Поверх —
@@ -89,22 +92,22 @@ const directions = [
   {
     title: "Благоустройство и городская среда",
     text: "Дворы, парки и общественные пространства, в которых хочется жить.",
-    img: "/dir-park.jpg",
+    img: `${BP}/dir-park.jpg`,
   },
   {
     title: "Образование, спорт и молодёжь",
     text: "Современные школы, доступные секции и поддержка молодёжных проектов.",
-    img: "/dir-sport.jpg",
+    img: `${BP}/dir-sport.jpg`,
   },
   {
     title: "Поддержка семей и участников СВО",
     text: "Адресная помощь семьям, ветеранам и тем, кто в ней нуждается.",
-    img: "/dir-family.jpg",
+    img: `${BP}/dir-family.jpg`,
   },
   {
     title: "ЖКХ, дороги и транспорт",
     text: "Контроль качества коммунальных услуг и развитие инфраструктуры района.",
-    img: "/dir-roads.jpg",
+    img: `${BP}/dir-roads.jpg`,
   },
 ];
 
@@ -186,7 +189,7 @@ export default function Home() {
               </p>
             </div>
             <Image
-              src="/map-krasnogorsk.svg"
+              src={`${BP}/map-krasnogorsk.svg`}
               alt="Карта Московской области, Красногорский район выделен красным"
               width={631}
               height={595}
@@ -200,7 +203,7 @@ export default function Home() {
         <div className="rise rise-2 relative mx-auto w-full max-w-[340px] lg:order-first">
           <div className="relative aspect-[4/5]">
             <Image
-              src="/nikita.png"
+              src={`${BP}/nikita.png`}
               alt="Никита Сергеевич Махнач"
               fill
               priority
@@ -256,7 +259,7 @@ export default function Home() {
           </p>
         </div>
         <Image
-          src="/gorod.png"
+          src={`${BP}/gorod.png`}
           alt="Миниатюра Красногорска: собор, усадьба, башня, мост и железная дорога"
           width={1299}
           height={1008}

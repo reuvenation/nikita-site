@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     output: "export" as const,
     basePath: "/nikita-site",
     images: { unoptimized: true },
-    env: { NEXT_PUBLIC_NO_API: "1" },
+    env: { NEXT_PUBLIC_NO_API: "1", NEXT_PUBLIC_BASE_PATH: "/nikita-site" },
   }),
 };
 
