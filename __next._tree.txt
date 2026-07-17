@@ -1,0 +1,3 @@
+:HL["/nikita-site/_next/static/chunks/2t90lpb50vczp.css","style"]
+:HL["/nikita-site/_next/static/media/TTForsVariable-s.p.2qvmnsdwao0_b.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"dVxtQ2bdZZt6UoV8oJuey"}
